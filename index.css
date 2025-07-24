@@ -6,6 +6,9 @@ body{
     align-items: center;
     min-height: 100vh;
 }
+style{
+  box-sizing: border-box;
+}
 button {
   display: flex;
   align-items: center;
