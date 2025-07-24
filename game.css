@@ -1,17 +1,25 @@
-body{
-    background-image: url('https://wallpaperaccess.com/full/269188.png');
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+/* พื้นหลัง + ปุ่มชิดล่าง */
+body {
+  background-image: url('https://wallpaperaccess.com/full/269188.png');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* ดันเนื้อหาชิดล่าง */
+  align-items: center;       /* จัดกึ่งกลางแนวนอน */
+  min-height: 100vh;
+  margin: 0;
 }
+
+/* ปุ่ม */
 button {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 0 10px;
+  padding: 0 20px;
+  margin-bottom: 30px; /* ระยะห่างจากขอบล่าง */
   color: white;
   text-shadow: 2px 2px rgb(116, 116, 116);
   text-transform: uppercase;
@@ -19,7 +27,7 @@ button {
   border: solid 2px black;
   letter-spacing: 1px;
   font-weight: 600;
-  font-size: 70px;
+  font-size: 40px;
   background-color: hsl(120, 99%, 34%);
   border-radius: 50px;
   position: relative;
@@ -63,4 +71,3 @@ button:hover .play {
   transform: translateX(200%);
   transition-delay: 300ms;
 }
-
