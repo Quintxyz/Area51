@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="game.css">
-    <title>Area51</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="game.css">
+  <title>Area51 - Game Select</title>
 </head>
 <body>
-  <button>
-    <img src="img/360_F_508027415_4QUICcSCBjIkykkZPVFrsF5gaVEuYvmB-removebg-preview.png" alt="icon" width="95" height="95" />
-    <span class="now" onclick="window.location.href='index.html'">ตอนนี้</span>
-    <span class="play" onclick="window.location.href='index.html'">ย้อนกลับ</span>
-  </button>
+
+  <div class="game-grid">
+    <a href="dns.html" class="game-box">
+        <img src="img/180908-google-trex-3.jpg" alt="">
+      <div class="game-title">เกมไดโนเสาร์หรรษา</div>
+    </a>
+  </div>
+
+  <div class="bottom-back">
+    <button class="back-button">
+      <img src="img/360_F_508027415_4QUICcSCBjIkykkZPVFrsF5gaVEuYvmB-removebg-preview.png" alt="icon" width="95" height="95" />
+      <span class="now" onclick="window.location.href='index.html'">ตอนนี้</span>
+      <span class="play" onclick="window.location.href='menu.html'">ย้อนกลับ</span>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>

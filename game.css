@@ -1,27 +1,73 @@
-/* พื้นหลัง + ปุ่มชิดล่าง */
 body {
   background-image: url('https://wallpaperaccess.com/full/269188.png');
   background-size: cover;
   background-position: center;
   font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* ดันเนื้อหาชิดล่าง */
-  align-items: center;       /* จัดกึ่งกลางแนวนอน */
+  align-items: center;
   min-height: 100vh;
-  margin: 0;
-}
-style{
   box-sizing: border-box;
 }
-/* ปุ่ม */
-button {
+
+/* กล่องเลือกเกม */
+.game-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.game-box {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.game-box:hover {
+  transform: scale(1.05);
+}
+
+.game-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.game-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  text-align: center;
+  padding: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.game-box:hover .game-title {
+  opacity: 1;
+}
+
+/* ปุ่มย้อนกลับ (เหมือนเดิม) */
+.back-button {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 0 20px;
-  margin-bottom: 30px; /* ระยะห่างจากขอบล่าง */
+  margin-top: 30px;
   color: white;
   text-shadow: 2px 2px rgb(116, 116, 116);
   text-transform: uppercase;
@@ -37,39 +83,55 @@ button {
   transition: all 0.5s ease;
 }
 
-button:active {
+.back-button:active {
   transform: scale(0.9);
   transition: all 100ms ease;
 }
 
-button svg {
+.play, .now {
   transition: all 0.5s ease;
   z-index: 2;
 }
 
 .play {
-  transition: all 0.5s ease;
   transition-delay: 300ms;
-}
-
-button:hover svg {
-  transform: scale(3) translate(50%);
 }
 
 .now {
   position: absolute;
   left: 0;
   transform: translateX(-100%);
-  transition: all 0.5s ease;
-  z-index: 2;
 }
 
-button:hover .now {
+.back-button:hover .now {
   transform: translateX(10px);
   transition-delay: 300ms;
 }
 
-button:hover .play {
+.back-button:hover .play {
   transform: translateX(200%);
   transition-delay: 300ms;
+}
+
+/* กล่องปุ่มล่างสุด */
+.bottom-back {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Responsive มือถือ */
+@media (max-width: 768px) {
+  .game-box {
+    width: 45vw;
+    height: 25vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-box {
+    width: 90vw;
+    height: 50vw;
+  }
 }
