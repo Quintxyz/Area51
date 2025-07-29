@@ -10,14 +10,14 @@ const jumpSound = new Audio("audio/jump.mp3");
 const hitSound = new Audio("audio/hit.mp3");
 const bgMusic = new Audio("audio/ambience.mp3");
 bgMusic.loop = true;
-bgMusic.volume = 0.3;
+bgMusic.volume = 0.45;
 
 let score = 0;
 let highscore = 0;
 let gameRunning = false;
 let position = 0;
 let velocity = 0;
-let gravity = -0.45;
+let gravity = -0.3876;
 let jumping = false;
 let obstacleleft = 900;
 let obstacleSpeed = 4;
@@ -108,7 +108,7 @@ function gameOver() {
 
 function jump() {
     if (!jumping && gameRunning) {
-        velocity = 12.58; //
+        velocity = 13.24; //
         jumping = true;
         jumpSound.play();
     }
