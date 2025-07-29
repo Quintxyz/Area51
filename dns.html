@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Dinosaure Game</title>
-        <link rel="stylesheet" href="dns.css">
-    </head>
-    <body>
-        <div align="center">
-            <p><h1>Dino Game</h1></p>
-        </div>
+<head>
+    <title>Area 51</title>
+    <link rel="stylesheet" href="al.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div align="center">
+        <h1>🛸 AREA 51 RUNNER 🛸</h1>
+    </div>
 
-        <!-- ส่วนของเกม -->
-        <div class="game-container">
-            <div id="dino"></div>
-            <div id="obstacle"></div>
+    <div class="game-container" id="game-container">
+        <div id="character"></div>
+        <div id="obstacle"></div>
+    </div>
 
-        </div>
+    <div class="scoreboard">
+        <div id="score">คะแนน : 0</div>
+        <div id="highscore">คะแนนสูงสุด : 0</div>
+    </div>
 
-        <!-- ส่วนของการแสดงคะแนนที่ได้ -->
-        <div class="scoreboard">
-            <div id="score">คะแนน : 0</div>
-            <div id="highscore">คะแนนสูงสุด : 0</div>
-            <br>
+    <div class="menu">
+        <button id="startBtn">เริ่มเล่น</button>
+        <button id="resetBtn" style="display: none;">เริ่มใหม่</button>
+    </div>
 
-        </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="backBtn">ย้อนกลับ</button>
+    </div>
+    <button id="jumpBtn" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #00ffcc;
+  border: none;
+  font-size: 24px;
+  color: #000;
+  box-shadow: 0 0 10px #00ffcc;
+  z-index: 1000;
+  opacity: 0.8;
+">▲</button>
+<div class="credits" style="text-align: center; margin-top: 30px; color: #ccc; font-size: 14px;">
+    By 
+    <a href="https://www.instagram.com/youknowaboutquint/" target="_blank" style="color: #7fffd4; text-decoration: none;">𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦🅾: youknowaboutquint</a>    
+    <a href="https://www.facebook.com/nanth.wat.hn.sxng.phan.ced" target="_blank" style="color: #7fffd4; text-decoration: none;">facebookⓕ: นันทวัฒน์ สองพันเจ็ด</a>
+  </div>
 
-        <!-- ส่วนของเมนู -->
-        <div class="menu">
-            <button id="startBtn" style="display: inline;">เริ่มเล่น</button>
-            <button id="resetBtn" style="display: none;">เริ่มใหม่</button>
-
-        </div>
-
-        <script src="dns.js"></script>
-
-    </body>
+    <script src="al.js"></script>
+    <script>
+        document.getElementById('backBtn').addEventListener('click', () => {
+            window.location.href = "https://quintxyz.github.io/Area51/";
+        });
+    </script>
+</body>
 </html>
