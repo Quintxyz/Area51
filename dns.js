@@ -17,7 +17,7 @@ let highscore = 0;
 let gameRunning = false;
 let position = 0;
 let velocity = 0;
-let gravity = -0.3876;
+let gravity = -0.425;
 let jumping = false;
 let obstacleleft = 900;
 let obstacleSpeed = 4;
@@ -108,7 +108,7 @@ function gameOver() {
 
 function jump() {
     if (!jumping && gameRunning) {
-        velocity = 13.24; //
+        velocity = 13.874; //
         jumping = true;
         jumpSound.play();
     }
