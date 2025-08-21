@@ -8,6 +8,7 @@ body {
     font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* ป้องกันการเลื่อนหน้าจอ */
 }
 
 .game-container {
@@ -67,25 +68,74 @@ body {
     box-shadow: 0 0 30px #00ffcc;
 }
 
+#jumpBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #00ffcc;
+    border: none;
+    font-size: 24px;
+    color: #000;
+    box-shadow: 0 0 10px #00ffcc;
+    z-index: 1000;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.alert-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 3px solid #00ffcc;
+    padding: 20px 40px;
+    border-radius: 10px;
+    z-index: 2000;
+    color: #00ffcc;
+    font-size: 22px;
+    text-align: center;
+}
+
+.alert-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 @media (max-width: 600px) {
-  .game-container {
-    height: 220px;
-  }
-  #character {
-    width: 70px;
-    height: 70px;
-    left: 80px;
-  }
-  #obstacle {
-    width: 50px;
-    height: 50px;
-    left: 100%;
-  }
-  .menu button, #backBtn {
-    padding: 12px 25px;
-    font-size: 18px;
-  }
-  .scoreboard {
-    font-size: 18px;
-  }
+    .game-container {
+        height: 220px;
+    }
+    #character {
+        width: 70px;
+        height: 70px;
+        left: 80px;
+    }
+    #obstacle {
+        width: 50px;
+        height: 50px;
+        left: 100%;
+    }
+    .menu button, #backBtn {
+        padding: 12px 25px;
+        font-size: 18px;
+    }
+    .scoreboard {
+        font-size: 18px;
+    }
+    #jumpBtn {
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+    }
 }
