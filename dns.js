@@ -24,6 +24,22 @@ let obstacleSpeed = 4;
 let moveInterval = null;
 let gameLoopInterval = null;
 
+function showPreGameAlert() {
+    const alertBox = document.createElement('div');
+    alertBox.classList.add('alert-box');
+    alertBox.innerHTML = `
+        <div>ทำคะแนนให้ได้ 10 คะแนนเพื่อรับของรางวัล!</div>
+        <button id="alertBtn">ตกลง</button>
+    `;
+    document.body.appendChild(alertBox);
+    
+    document.getElementById('alertBtn').addEventListener('click', () => {
+        alertBox.remove();
+        startGame();
+    });
+    startBtn.style.display = 'none';
+}
+
 function startGame() {
     score = 0;
     velocity = 0;
@@ -40,8 +56,9 @@ function startGame() {
     scoreDisplay.textContent = "คะแนน : 0";
     highscoreDisplay.textContent = "คะแนนสูงสุด : " + highscore;
 
-    startBtn.disabled = true;
+    startBtn.style.display = "none";
     resetBtn.style.display = "none";
+    jumpBtn.style.display = "block";
 
     bgMusic.play();
     gameLoop();
@@ -70,8 +87,8 @@ function moveObstacle() {
         obstacleleft -= obstacleSpeed;
         obstacle.style.left = obstacleleft + "px";
 
-        if (obstacleleft <= -70) { // กำหนดตามขนาด obstacle ใหม่
-            obstacleleft = 900;
+        if (obstacleleft <= -70) { 
+            obstacleleft = window.innerWidth;
             score++;
             scoreDisplay.textContent = "คะแนน : " + score;
             if (score > highscore) {
@@ -80,7 +97,7 @@ function moveObstacle() {
             }
         }
 
-        obstacleSpeed += 0.002; // เร่งสปีดช้าๆ
+        obstacleSpeed += 0.002; 
     }, 20);
 }
 
@@ -103,30 +120,40 @@ function gameOver() {
     hitSound.play();
     bgMusic.pause();
     bgMusic.currentTime = 0;
+    
     resetBtn.style.display = "inline";
+    startBtn.style.display = "none";
+    jumpBtn.style.display = "none";
 }
 
 function jump() {
     if (!jumping && gameRunning) {
-        velocity = 13.874; //
+        velocity = 13.874;
         jumping = true;
         jumpSound.play();
     }
 }
 
-document.addEventListener("keydown", e => {
-    if (e.code === "Space" || e.code === "ArrowUp") {
-        jump();
-    }
-});
-
+jumpBtn.addEventListener('click', jump);
 jumpBtn.addEventListener('touchstart', (e) => {
     e.preventDefault();
     jump();
 });
 
-startBtn.addEventListener("click", startGame);
+startBtn.addEventListener("click", showPreGameAlert);
+
 resetBtn.addEventListener("click", () => {
-    startBtn.disabled = false;
     resetBtn.style.display = "none";
+    startBtn.style.display = "inline";
+    jumpBtn.style.display = "none";
+});
+
+document.getElementById('backBtn').addEventListener('click', () => {
+    window.location.href = "https://quintxyz.github.io/Area51/";
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    startBtn.style.display = 'inline';
+    resetBtn.style.display = 'none';
+    jumpBtn.style.display = 'none';
 });
